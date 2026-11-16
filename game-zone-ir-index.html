@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GAME ZONE IR؛ آرشیو آزمایشی بازی‌ها و مودهای مجاز">
+  <title>GAME ZONE IR | دانلود بازی</title>
+  <style>
+    :root {
+      --bg: #090d18; --panel: #111a2b; --panel2: #17243a;
+      --text: #f4f7ff; --muted: #9eabc2; --accent: #61e6b2;
+      --blue: #69a8ff; --border: rgba(255,255,255,.09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Tahoma, Arial, sans-serif; color: var(--text);
+      background: radial-gradient(ellipse at 85% -10%, #1b3455 0, transparent 42%), var(--bg);
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1100px, 92%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 5; backdrop-filter: blur(14px);
+      background: rgba(9,13,24,.86); border-bottom: 1px solid var(--border);
+    }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.4px; }
+    .logo { width:39px; height:39px; display:grid; place-items:center; border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--blue)); color:#07121c; font-size:22px; }
+    .brand span { color:var(--accent); }
+    .navlinks { display:flex; gap:20px; color:var(--muted); font-size:14px; }
+    .navlinks a:hover { color:var(--accent); }
+    .hero { padding:62px 0 36px; display:grid; grid-template-columns:1.3fr .7fr; gap:28px; align-items:center; }
+    .eyebrow { color:var(--accent); font-size:13px; font-weight:bold; }
+    h1 { font-size:clamp(32px,5vw,54px); line-height:1.35; margin:10px 0; }
+    .hero p { color:var(--muted); max-width:620px; }
+    .hero-art { min-height:210px; border:1px solid var(--border); border-radius:24px; padding:24px;
+      background:linear-gradient(145deg,#1a3150,#111a2b 65%); display:grid; place-items:center; text-align:center; }
+    .hero-art .controller { font-size:78px; filter:drop-shadow(0 12px 22px #0008); }
+    .hero-art strong { display:block; font-size:20px; }
+    .searchrow { display:flex; gap:10px; margin:18px 0 30px; }
+    input[type="search"] { flex:1; min-width:0; background:var(--panel); color:var(--text);
+      border:1px solid var(--border); border-radius:13px; padding:14px 16px; font:inherit; outline:none; }
+    input:focus { border-color:var(--accent); }
+    .btn { border:0; border-radius:12px; padding:12px 17px; font:inherit; font-weight:bold;
+      cursor:pointer; background:var(--accent); color:#07151a; display:inline-block; text-align:center; }
+    .btn:hover { filter:brightness(1.08); transform:translateY(-1px); }
+    .btn.secondary { background:var(--panel2); color:var(--text); border:1px solid var(--border); }
+    .sectionhead { display:flex; align-items:end; justify-content:space-between; gap:12px; margin:26px 0 16px; }
+    h2 { margin:0; font-size:23px; }
+    .muted { color:var(--muted); font-size:13px; }
+    .filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+    .filter { padding:8px 14px; border-radius:999px; border:1px solid var(--border);
+      background:var(--panel); color:var(--muted); cursor:pointer; font:inherit; font-size:13px; }
+    .filter.active { background:rgba(97,230,178,.13); color:var(--accent); border-color:var(--accent); }
+    .games { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { overflow:hidden; background:var(--panel); border:1px solid var(--border); border-radius:18px; }
+    .cover { height:150px; display:grid; place-items:center; font-size:64px;
+      background:linear-gradient(135deg,#243f60,#15243a); }
+    .cover.green { background:linear-gradient(135deg,#174b42,#172c37); }
+    .cover.purple { background:linear-gradient(135deg,#47336d,#202644); }
+    .cover.orange { background:linear-gradient(135deg,#71452b,#2c2631); }
+    .cardbody { padding:16px; }
+    .card h3 { margin:0 0 5px; font-size:18px; }
+    .tag { display:inline-block; color:var(--accent); background:rgba(97,230,178,.1);
+      padding:3px 9px; border-radius:30px; font-size:11px; margin:7px 0; }
+    .card p { color:var(--muted); font-size:13px; min-height:48px; margin:5px 0 13px; }
+    .cardfoot { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .adbox { margin:34px 0; border:1px dashed #60718d; border-radius:18px; padding:22px;
+      text-align:center; background:rgba(23,36,58,.5); }
+    .adbox b { color:#ffd27a; }
+    .donate { margin:28px 0; padding:25px; border-radius:20px; display:flex; align-items:center;
+      justify-content:space-between; gap:20px; background:linear-gradient(110deg,#183e3a,#17243a); border:1px solid #285c52; }
+    .donate p { color:#c3d8d3; margin:4px 0 0; font-size:13px; }
+    .video { border-radius:18px; background:var(--panel); border:1px solid var(--border);
+      padding:22px; margin:28px 0; }
+    .video-placeholder { margin-top:12px; min-height:150px; display:grid; place-items:center;
+      border-radius:13px; background:#080c14; color:var(--muted); text-align:center; padding:15px; }
+    footer { border-top:1px solid var(--border); margin-top:45px; padding:25px 0 35px; color:var(--muted); font-size:12px; }
+    .empty { display:none; color:var(--muted); padding:24px; text-align:center; grid-column:1/-1; }
+    @media(max-width:800px) { .hero { grid-template-columns:1fr; padding-top:38px; } .hero-art { min-height:150px; } .games { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:540px) { .navlinks { gap:10px; font-size:12px; } .games { grid-template-columns:1fr; }
+      .cover { height:135px; } .donate { align-items:flex-start; flex-direction:column; } .searchrow { flex-direction:column; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><div class="logo">🎮</div><div>GAME <span>ZONE</span> IR</div></a>
+    <nav class="navlinks">
+      <a href="#games">بازی‌ها</a><a href="#support">حمایت</a><a href="#contact">ارتباط</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">دنیای بازی‌ها، یک‌جا و رایگان</div>
+      <h1>بازی بعدی‌ات<br>اینجاست! 🚀</h1>
+      <p>بازی‌های مستقل، رایگان و محتوای جانبی مجاز را کشف کن. این نسخه، نمونه‌ی اولیه‌ی سایت GAME ZONE IR است.</p>
+      <a class="btn" href="#games">دیدن بازی‌ها ↓</a>
+    </div>
+    <div class="hero-art"><div><div class="controller">🕹️</div><strong>PLAY • DISCOVER • ENJOY</strong><span class="muted">نسخه آزمایشی سایت</span></div></div>
+  </section>
+
+  <section id="games">
+    <div class="sectionhead"><div><h2>📥 آرشیو بازی‌ها</h2><div class="muted">برای دیدن جزئیات، جست‌وجو یا دسته‌بندی کن</div></div></div>
+    <div class="searchrow">
+      <input id="search" type="search" placeholder="اسم بازی رو جست‌وجو کن..." aria-label="جست‌وجوی بازی">
+      <button class="btn secondary" id="clear">پاک کردن</button>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-category="all">همه</button>
+      <button class="filter" data-category="adventure">ماجراجویی</button>
+      <button class="filter" data-category="racing">مسابقه‌ای</button>
+      <button class="filter" data-category="indie">مستقل</button>
+    </div>
+    <div class="games" id="gamesGrid">
+      <article class="card" data-category="adventure" data-name="supertuxkart سوپرتاکس کارت">
+        <div class="cover green">🏎️</div><div class="cardbody">
+          <h3>SuperTuxKart</h3><span class="tag">مسابقه‌ای • رایگان</span>
+          <p>یک بازی مسابقه‌ای سرگرم‌کننده و متن‌باز با شخصیت‌های کارتونی.</p>
+          <div class="cardfoot"><span class="muted">Windows / Linux / macOS</span><a class="btn" href="https://supertuxkart.net/Download" target="_blank" rel="noopener">دریافت</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="adventure" data-name="0 a d zero ad">
+        <div class="cover orange">🏛️</div><div class="cardbody">
+          <h3>0 A.D.</h3><span class="tag">استراتژی • رایگان</span>
+          <p>بازی استراتژی تاریخی و متن‌باز با تمدن‌ها و نبردهای قدیمی.</p>
+          <div class="cardfoot"><span class="muted">Windows / Linux / macOS</span><a class="btn" href="https://play0ad.com/download/" target="_blank" rel="noopener">دریافت</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="indie" data-name="supertux سوپرتاکس">
+        <div class="cover purple">🐧</div><div class="cardbody">
+          <h3>SuperTux</h3><span class="tag">مستقل • رایگان</span>
+          <p>یک بازی سکوبازی دوبعدی الهام‌گرفته از بازی‌های کلاسیک.</p>
+          <div class="cardfoot"><span class="muted">Windows / Linux / macOS</span><a class="btn" href="https://www.supertux.org/download.html" target="_blank" rel="noopener">دریافت</a></div>
+        </div>
+      </article>
+    </div>
+    <div class="empty" id="empty">بازی‌ای با این مشخصات پیدا نشد.</div>
+  </section>
+
+  <section class="adbox">
+    <b>📢 جایگاه تبلیغاتی شما</b>
+    <div class="muted">اینجا می‌توانی تبلیغ کسب‌وکارها را با اجازه‌ی آن‌ها نمایش بدهی.</div>
+    <div class="muted">برای همکاری: your-email@example.com</div>
+  </section>
+
+  <section id="support" class="donate">
+    <div><h2>❤️ از GAME ZONE IR حمایت کن</h2><p>اگر از سایت خوشت اومده، می‌تونی برای ادامه‌ی فعالیتش کمک کنی.</p></div>
+    <a class="btn" href="mailto:your-email@example.com?subject=حمایت%20از%20GAME%20ZONE%20IR">حمایت از سایت</a>
+  </section>
+
+  <section class="video">
+    <h2>▶️ ویدئوهای معرفی بازی</h2>
+    <div class="muted">ویدئوهای معرفی و آموزش خودت را از آپارات اینجا قرار بده.</div>
+    <div class="video-placeholder">🎬<br>جایگاه ویدئوی آپارات<br><small>بعداً کد Embed ویدئو را اینجا قرار بده.</small></div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <strong>GAME ZONE IR</strong> — نسخه آزمایشی
+    <p>این سایت فقط بازی‌ها و فایل‌هایی را معرفی می‌کند که انتشارشان مجاز است. پیش از دانلود، منبع و شرایط هر فایل را بررسی کن.</p>
+    <p>ارتباط: your-email@example.com</p>
+    <p>© 2026 GAME ZONE IR</p>
+  </div>
+</footer>
+
+<script>
+  const search = document.getElementById('search');
+  const cards = [...document.querySelectorAll('.card')];
+  const filters = [...document.querySelectorAll('.filter')];
+  const empty = document.getElementById('empty');
+  let category = 'all';
+
+  function updateGames() {
+    const q = search.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const matchesText = card.dataset.name.toLocaleLowerCase().includes(q);
+      const matchesCategory = category === 'all' || card.dataset.category === category;
+      const show = matchesText && matchesCategory;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    empty.style.display = visible ? 'none' : 'block';
+  }
+  search.addEventListener('input', updateGames);
+  document.getElementById('clear').addEventListener('click', () => {
+    search.value = ''; category = 'all';
+    filters.forEach(f => f.classList.toggle('active', f.dataset.category === 'all'));
+    updateGames();
+  });
+  filters.forEach(button => button.addEventListener('click', () => {
+    category = button.dataset.category;
+    filters.forEach(f => f.classList.toggle('active', f === button));
+    updateGames();
+  }));
+</script>
+</body>
+</html>
